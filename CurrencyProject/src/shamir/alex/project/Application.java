@@ -13,6 +13,7 @@ public class Application {
 	public static void main(String[] args) 
 	{		
 		PropertyConfigurator.configure("log4j.properties");
+		logger.fatal("--------------------------------");
 		EventQueue.invokeLater(new Runnable(){
 			public void run()
 			{
@@ -29,6 +30,7 @@ public class Application {
 					logger.fatal("Application Crashed while Start Running");
 				}
 			}
-		});
+			
+		});		
 	}
 }
