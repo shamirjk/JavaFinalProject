@@ -20,11 +20,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 public class CurrencyModule implements IExchange
 {
+	final static Logger logger = Logger.getLogger(CurrencyModule.class);
 	private Document doc;
 	/**
 	 * The method gets the XML doc update time
@@ -40,6 +42,7 @@ public class CurrencyModule implements IExchange
 		}
 		else
 		{
+			logger.error("cannot Read Last_update data from File");
 			return "BAD FILE";
 		}
 	}
@@ -105,27 +108,33 @@ public class CurrencyModule implements IExchange
         return (sum * (source.rate/source.unit)) / (destination.rate/ destination.unit);
 	}
 	
+	/**
+	 * Connect to Server and save Updated Data
+	 */
 	public void onlineData() throws IOException 
 	{
 		URL israelBankSite; //define URL var			
 		HttpURLConnection connection = null ; // define a connection										
 		InputStream inputStr = null;
-		
+		String urlsite =  "http://www.boi.org.il/currency.xml";
 		
 		try
         {
-			israelBankSite = new URL("http://www.boi.org.il/currency.xml");  
+			israelBankSite = new URL(urlsite);  
         }		
         catch(MalformedURLException ex) //initial URL exception handle											
         {
-            throw new MalformedURLException();	//throw exception to caller					           		   
+            logger.error("URL Build " +urlsite + " didn't succeded");
+        	throw new MalformedURLException();	//throw exception to caller					           		   
         }
         
 		try
         {
-            connection = (HttpURLConnection)israelBankSite.openConnection(); //initial the connection
+			connection = (HttpURLConnection)israelBankSite.openConnection(); //initial the connection
             connection.setRequestMethod("GET");	//define the HTTP method
+            logger.info("Connect to " + urlsite);
             connection.connect(); //open the connection to URL
+            logger.info("Start stream from website");
             inputStr = connection.getInputStream(); //get input streaming
 
             //save reserve copy to file
@@ -139,12 +148,13 @@ public class CurrencyModule implements IExchange
             //flush OutputStream to write any buffered data to file
             os.flush();
             os.close();
-            //offlineData("Offline.xml");
-
+            logger.info("Updated Data Saved to File");
         }
-        catch(IOException conErr)
+        
+		catch(IOException conErr)
         {
-            throw new IOException(); //throw general connection exception
+            logger.error("Pull Data from Site failed");
+			throw new IOException(); //throw general connection exception
         }
         finally
         {
@@ -152,22 +162,28 @@ public class CurrencyModule implements IExchange
             {
                 try
                 {
-                    inputStr.close();
+                	inputStr.close();
+                	 logger.info("input stream closed");
                 }
               
                 catch(IOException inpCls) //catch exception											                                                 
                 {
-                   throw new IOException();
+                	logger.error("Error Closing stream");
+                	throw new IOException();
                 }
             }
 
             if(connection != null)
             {
                 connection.disconnect();
+                logger.info("Connection closed");
             }
         }
 	}
 	
+	/**
+	 * Parsing the Offline file to Doc Object
+	 */
 	public void offlineData(String filePath) throws IOException
 	{
 		File fXmlFile = new File(filePath); //load the file to var
@@ -180,6 +196,7 @@ public class CurrencyModule implements IExchange
 		}
 		catch (ParserConfigurationException e1)
 		{
+			logger.error("DocBuilder Failed");
 			throw new IOException();
 		}
 		try
@@ -188,9 +205,11 @@ public class CurrencyModule implements IExchange
 		}
 		catch (SAXException | IOException e)
 		{
+			logger.error("Error while Parsing the XML Offline File");
 			throw new IOException();
 		}
 		doc.getDocumentElement().normalize();
+		logger.info("File Parsed");
 	}
 	
 	

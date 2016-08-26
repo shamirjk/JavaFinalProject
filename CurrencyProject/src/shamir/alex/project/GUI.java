@@ -5,6 +5,9 @@
 
 package shamir.alex.project;
 import javax.swing.*;
+
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,6 +20,7 @@ import java.util.Date;
 
 public class GUI implements WindowConstants, ActionListener
 {	
+	final static Logger logger = Logger.getLogger(GUI.class);
 	//Map collection of objects - can contains Online/Offline data
 	private HashMap<String,CurrencyModule> currencies = new HashMap<String,CurrencyModule>();
 		
@@ -28,12 +32,6 @@ public class GUI implements WindowConstants, ActionListener
 	private JLabel mntmRefreshTime;
 	private JTabbedPane tabbedPane;
 		
-		
-		/**
-		 * Application starts
-		 */
-	
-
 	/**
 	 * Create the application.
 	 * @throws Exception 
@@ -48,8 +46,9 @@ public class GUI implements WindowConstants, ActionListener
 	 * Initialize the contents of the frame.
 	 * @throws IOException 
 	 */
-	private void initialize() throws IOException
+	private void initialize()
 	{
+		logger.info("start draw GUI");
 		//The main form of init and set.
 		frmCurrencyManager = new JFrame();
 		frmCurrencyManager.setTitle("Currency Manager By Shamir & Alex");
@@ -98,10 +97,12 @@ public class GUI implements WindowConstants, ActionListener
 		{
 			//Handle the online loading of the XML
 			case "Refresh Data":
+				logger.info("User ask to Refresh Data");
 				loadFromOnline();
 				break;
 				
 			case "Load File":
+				logger.info("User ask to Load Data From File");
 				loadFromOffLine();
 				break;
 		}
@@ -124,7 +125,7 @@ public class GUI implements WindowConstants, ActionListener
 	 * @param Date
 	 * @throws IOException 
 	 */
-	private void drawCurrenciesPanels(HashMap<String, Currency> currenciesMap,String date) throws IOException
+	private void drawCurrenciesPanels(HashMap<String, Currency> currenciesMap,String date)
     {
 		//This is the new panel - it contains the data
 		JPanel containPanel = new JPanel();
@@ -226,10 +227,10 @@ public class GUI implements WindowConstants, ActionListener
             //For each iteration, add label to row panel
             for (JLabel label : arr) 
             {
-                panel.add(label);                                                                                                          //add all JLabels into panel
+                panel.add(label);                                  //add all JLabels into panel
             }
             //The result container gets the row panel 
-            resultsPanel.add(panel);                                                                                                //add panel to main  screen
+            resultsPanel.add(panel);                               //add panel to main  screen
         }
         containPanel.add(resultsPanel, BorderLayout.CENTER);
         //Add the panel to the tab pane
@@ -259,6 +260,7 @@ public class GUI implements WindowConstants, ActionListener
 			//Puts the object from online into the objects map
 		catch (IOException e)
 		{
+			logger.error("Can't Load Data From Server");
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "There was a problem to load data from server.\n\nCheck for internet connection and try again.","Error",JOptionPane.OK_OPTION);
 			
@@ -269,6 +271,7 @@ public class GUI implements WindowConstants, ActionListener
 			//Gets current time of the file
 		}
 		catch (IOException o){
+			logger.error("Can't Load Data From Selected File");
 			o.printStackTrace();
 			JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\nPlease try again or choose different file.","Error",JOptionPane.OK_OPTION);
 		}	
@@ -284,17 +287,9 @@ public class GUI implements WindowConstants, ActionListener
 		if(!exist){
 			currencies.put(date, on);
 			//Paint the data from server into a tab
-			try {
-				drawCurrenciesPanels(on.getCurrencies(on.getDoc()),date);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Problem whith file.\n\nPlease try again or choose different file.","Error",JOptionPane.OK_OPTION);
-			}
+			drawCurrenciesPanels(on.getCurrencies(on.getDoc()),date);
 		}
-		
 		mntmRefreshTime.setText(" Last refresh from: " + reportDate);
-		
 	}
 	
 	public void loadFromOffLine(){
@@ -330,6 +325,7 @@ public class GUI implements WindowConstants, ActionListener
 			}
 			catch (IOException e)
 			{
+				logger.error("Can't Load Data From Selected File");
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\nPlease try again or choose different file.","Error",JOptionPane.OK_OPTION);
 			}
@@ -344,10 +340,11 @@ public class GUI implements WindowConstants, ActionListener
 		    		try {
 						sleep(3600000);//choose time of updates
 					} catch (InterruptedException e1){
-						// TODO Auto-generated catch block
+						logger.error("Problem with sleep mode");
 						e1.printStackTrace();
 					}
 		    		loadFromOnline();
+		    		logger.info("Start auto Update");
 		    	}
 		    }
 		}.start();

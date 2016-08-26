@@ -10,9 +10,11 @@ import java.math.BigDecimal;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import org.apache.log4j.*;
 
 public class ConverterPanel extends JPanel implements ActionListener,KeyListener 
 {
+	final static Logger logger = Logger.getLogger(ConverterPanel.class);
 	private static final long serialVersionUID = 1L;
 	// declare of GUI components
 	private JTextField textFieldAmount;
@@ -130,7 +132,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 
 		add(calcBtn);
 		
-		//resoult
+		//result
 		JPanel res = new JPanel();
 		res.setLayout(new GridLayout(1, 2));
 		res.setBackground(Color.WHITE);
@@ -162,7 +164,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		map.put("ILS", new Currency("New Shekel", 1.0, "ILS", "Israel", 1.0,
 				0.0));
 
-		// foreach loop to add the string to the combobox
+		// foreach loop to add the string to the combo box
 		Set<String> list = map.keySet();
 		for (String str : list) {
 			sourceCombo.addItem(map.get(str).currencyCode);
@@ -173,13 +175,13 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 
 	@Override
 	public void actionPerformed(ActionEvent act) {
-		// Get currency - if user selects a value from the destination combobox
+		// Get currency - if user selects a value from the destination combo box
 		// than the link is objected to it
 		if (act.getSource() == destinationCombo
 				&& act.getActionCommand() == "comboBoxChanged") {
 			destination = map.get(destinationCombo.getSelectedItem().toString());
 		}
-		// Get currency - if user selects a value from the destination combobox
+		// Get currency - if user selects a value from the destination combo box
 		// than the link is objected to it
 		if (act.getSource() == sourceCombo
 				&& act.getActionCommand() == "comboBoxChanged") {
@@ -193,12 +195,15 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 			if (source != null && destination != null) {
 				// convert currencies, put result in label
 				try {
+					logger.info("Calculate Exchange rate");
 					double result = currMod.currencyConvert(
 							Double.parseDouble(textFieldAmount.getText()),
 							source, destination);
 					result = round(result, 2, BigDecimal.ROUND_HALF_UP);
 					lblResult.setText(result + "");
 				} catch (NumberFormatException ex) {
+					logger.error("parseDouble Function Crashed while Calculating Exchange rates.");
+					logger.error("Source= "+source + " Destination= "+destination);
 					textFieldAmount.setForeground(Color.RED);
 					textFieldAmount.setFont(new Font("Tahoma", Font.BOLD, 12));
 				}
@@ -235,5 +240,4 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 	}
-
 }

@@ -4,8 +4,11 @@ import java.awt.EventQueue;
 import org.apache.log4j.*;
 
 public class Application {
-	final static Logger logger = Logger.getLogger(Application.class.getName());
-	//final static Logger logger = Logger.getLogger(Application.class);
+	final static Logger logger = Logger.getLogger(Application.class);
+	
+	/**
+	 * Application starts
+	 */
 	
 	public static void main(String[] args) 
 	{		
@@ -15,7 +18,7 @@ public class Application {
 			{
 				try
 				{	
-					logger.info("this is Yotam the KING");
+					logger.info("Application Started");
 					GUI window = new GUI();
 					window.loadFromOnline();
 					window.autoUpdate();
@@ -23,6 +26,7 @@ public class Application {
 				catch (Exception e)
 				{
 					e.printStackTrace();
+					logger.fatal("Application Crashed while Start Running");
 				}
 			}
 		});
