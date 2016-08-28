@@ -9,13 +9,14 @@ import java.awt.event.*;
 import java.math.BigDecimal;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import org.apache.log4j.*;
 
-public class ConverterPanel extends JPanel implements ActionListener,KeyListener 
+public class CalculatorWindow extends JFrame implements ActionListener,KeyListener 
 {
-	final static Logger logger = Logger.getLogger(ConverterPanel.class);
+	final static Logger logger = Logger.getLogger(CalculatorWindow.class);
+	
 	private static final long serialVersionUID = 1L;
+	
 	// declare of GUI components
 	private JTextField textFieldAmount;
 	private JComboBox<String> destinationCombo;
@@ -38,18 +39,11 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 	 * @param map
 	 * @param currMod
 	 */
-	public ConverterPanel(CurrencyModule currMod) {
-		// set vars
-		this.currMod = currMod;
-		this.map = currMod.getCurrencies(currMod.getDoc());
+	public CalculatorWindow()
+	{
 		
 		// set the panel layout.
-		//setPreferredSize(new Dimension(200, 100));
-		setLayout(new GridLayout(15, 1, 0, 0));
-		//setLayout(new SpringLayout());
-		setBorder(new EmptyBorder(0, 10, 0, 10) );
-		
-		// set params for title label
+		setLayout(new GridLayout(8, 1, 0, 0));
 		JPanel converterTitle = new JPanel();
 		converterTitle.setLayout(new GridLayout(1, 1));
 		converterTitle.setBackground(Color.getColor("grey"));
@@ -57,7 +51,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		lblTitle = new JLabel("Converter");
 		lblTitle.setOpaque(true);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblTitle.setForeground(Color.WHITE);
 		lblTitle.setBackground(Color.GRAY);
 		converterTitle.add(lblTitle);
@@ -70,7 +64,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		
 		// set params for from label
 		lblFrom = new JLabel("From:");
-		lblFrom.setFont(new Font("Arial", Font.PLAIN, 10));
+		lblFrom.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblFrom.setHorizontalAlignment(SwingConstants.CENTER);
 		from.add(lblFrom);
 		
@@ -87,7 +81,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 				
 		// set params for to label
 		lblTo = new JLabel("To:");
-		lblTo.setFont(new Font("Arial", Font.PLAIN, 10));
+		lblTo.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblTo.setHorizontalAlignment(SwingConstants.CENTER);
 		to.add(lblTo);
 				
@@ -97,21 +91,19 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		to.add(destinationCombo);
 		add(to);
 		
-		
-
 		JPanel amount = new JPanel();
 		amount.setLayout(new GridLayout(1, 2));
 		amount.setBackground(Color.WHITE);
 
 		// set params for amount label
 		lblAmount = new JLabel("Amount:");
-		lblAmount.setFont(new Font("Arial", Font.PLAIN, 10));
+		lblAmount.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		amount.add(lblAmount);
 
 		// set params for amount txtfiled
 		textFieldAmount = new JTextField();
-		textFieldAmount.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldAmount.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textFieldAmount.setText("0");
 		textFieldAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldAmount.addKeyListener(this);
@@ -139,7 +131,7 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		
 		// set params for result label
 		lblTxtRes = new JLabel("Result:");
-		lblTxtRes.setFont(new Font("Arial", Font.PLAIN, 10));
+		lblTxtRes.setFont(new Font("Arial", Font.PLAIN, 13));
 		lblTxtRes.setHorizontalAlignment(SwingConstants.CENTER);
 		res.add(lblTxtRes);
 		
@@ -148,18 +140,23 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 		lblResult.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		res.add(lblResult);
-
 		add(res);
+		//add(calcPanel);
 		// populate data to comboboxes
-
-		populateCombos();
-
+		
 	}
-
+	
+	public void setCurrencyModule(CurrencyModule currMod){
+		// set vars
+		lblTitle.setText("The Converter uses  " + currMod.getUpdateTime(currMod.getDoc())+" Rates");
+		this.currMod = currMod;
+		this.map = currMod.getCurrencies(currMod.getDoc());
+		populateCombos();
+	}
 	/**
 	 * Populate the data to the combo boxes
 	 */
-	private void populateCombos() {
+	private void populateCombos(){
 		// add ILS to the map
 		map.put("ILS", new Currency("New Shekel", 1.0, "ILS", "Israel", 1.0,
 				0.0));
@@ -172,7 +169,10 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 
 		}
 	}
-
+	public void refreshCombo(){
+		destination = map.get(destinationCombo.getSelectedItem().toString());
+		source = map.get(sourceCombo.getSelectedItem().toString());	
+	}
 	@Override
 	public void actionPerformed(ActionEvent act) {
 		// Get currency - if user selects a value from the destination combo box
@@ -240,4 +240,5 @@ public class ConverterPanel extends JPanel implements ActionListener,KeyListener
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 	}
+
 }

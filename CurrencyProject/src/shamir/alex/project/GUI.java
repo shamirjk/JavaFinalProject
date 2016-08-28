@@ -5,11 +5,13 @@
 
 package shamir.alex.project;
 import javax.swing.*;
-
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import org.apache.log4j.Logger;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -29,14 +31,17 @@ public class GUI implements WindowConstants, ActionListener
 	private JMenuBar menuBar;
 	private JButton mntmNewMenuItem;
 	private JButton mntmLoadFromFile;
+	private JButton mntmCalcOperator;
 	private JLabel mntmRefreshTime;
 	private JTabbedPane tabbedPane;
-		
+	private CalculatorWindow calcWindow;
+	
 	/**
 	 * Create the application.
 	 * @throws Exception 
 	 */
-	public GUI() throws Exception
+	//public GUI(ConverterPanel calcWindow)
+	public GUI()
 	{
 		initialize();
 		frmCurrencyManager.setVisible(true);
@@ -54,8 +59,34 @@ public class GUI implements WindowConstants, ActionListener
 		frmCurrencyManager.setTitle("Currency Manager By Shamir & Alex");
 		frmCurrencyManager.setBounds(100, 100, 640, 480);
 		frmCurrencyManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCurrencyManager.setMinimumSize(new Dimension(500, 300));
 		frmCurrencyManager.setSize(800, 500);
-		frmCurrencyManager.setResizable(false);
+		frmCurrencyManager.addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                logger.info("Application Closed");
+                e.getWindow().dispose();
+            }
+        });
+		
+		//The Calculator init and set
+		calcWindow = new CalculatorWindow();
+		calcWindow.setTitle("Currency Convertor");
+		calcWindow.setBounds(100, 100, 640, 480);
+		calcWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		calcWindow.setSize(300, 300);
+		calcWindow.setResizable(false);
+		calcWindow.addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                logger.info("Convertor Window Closed");
+                e.getWindow().dispose();
+            }
+        });
 		
 		
 		//The Tab pane init and set.
@@ -64,10 +95,23 @@ public class GUI implements WindowConstants, ActionListener
 		tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		frmCurrencyManager.add(tabbedPane, BorderLayout.CENTER);
 		
+		ChangeListener changeListener = new ChangeListener() {
+		      public void stateChanged(ChangeEvent changeEvent) {
+		        JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+		        int index = sourceTabbedPane.getSelectedIndex();
+		        calcWindow.setCurrencyModule(currencies.get(sourceTabbedPane.getTitleAt(index)));
+		        calcWindow.refreshCombo();
+		        logger.info("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
+		      }
+		    };
+		    
+		tabbedPane.addChangeListener(changeListener);
+		
 		//The menu Bar init
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		frmCurrencyManager.setJMenuBar(menuBar);
+		
 		
 		//The menu Bar Items set
 		mntmNewMenuItem = new JButton("Refresh Data");
@@ -81,12 +125,19 @@ public class GUI implements WindowConstants, ActionListener
 		mntmLoadFromFile.addActionListener(this);
 		menuBar.add(mntmLoadFromFile);
 		
+		mntmCalcOperator = new JButton("Currency Convertor");
+		mntmCalcOperator.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mntmCalcOperator.addActionListener(this);
+		
+		menuBar.add(mntmCalcOperator);
+		
 		
 		mntmRefreshTime = new JLabel();
 		mntmRefreshTime.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		menuBar.add(mntmRefreshTime);
+			
 	}
-	
+
 	/**
 	 * Handling the events of the program.
 	 * */
@@ -104,6 +155,18 @@ public class GUI implements WindowConstants, ActionListener
 			case "Load File":
 				logger.info("User ask to Load Data From File");
 				loadFromOffLine();
+				break;
+			case "Currency Convertor":
+				if (calcWindow.isVisible()==true) {
+					logger.info("User Ask to hide Currency Convertor Window");
+					calcWindow.setVisible(false);
+				} else {
+					logger.info("User Ask to show Currency Convertor Window");
+					calcWindow.setVisible(true);
+				}
+				break;
+			case "Add New Currency":
+				logger.info("User ask to Add new Currency");	
 				break;
 		}
 		
@@ -139,8 +202,9 @@ public class GUI implements WindowConstants, ActionListener
 		containPanel.setLayout(new BorderLayout());
 		
 		 //Adds the converter panel into the bottom of the panel
-        containPanel.add(new ConverterPanel(currencies.get(date)), BorderLayout.LINE_START);
-       
+		if(currencies.size() == 1){
+			calcWindow.setCurrencyModule(currencies.get(date));
+		}
         JPanel resultsPanel = new JPanel();
         resultsPanel.setLayout(new GridLayout(15,1));
         
@@ -227,11 +291,12 @@ public class GUI implements WindowConstants, ActionListener
             //For each iteration, add label to row panel
             for (JLabel label : arr) 
             {
-                panel.add(label);                                  //add all JLabels into panel
+                panel.add(label);
             }
-            //The result container gets the row panel 
-            resultsPanel.add(panel);                               //add panel to main  screen
+         
+            resultsPanel.add(panel);
         }
+
         containPanel.add(resultsPanel, BorderLayout.CENTER);
         //Add the panel to the tab pane
         //In Order to create new tab with date title

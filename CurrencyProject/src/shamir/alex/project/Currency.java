@@ -20,12 +20,12 @@ public class Currency
 		public Currency()
 	    {
 			 //initial all var to the default value
-	        this.name = "unavailable";                                       
-	        this.unit = 0;
-	        this.currencyCode = "unavailable";
-	        this.country = "unavailable";
-	        this.rate = 0;
-	        this.change = 0;
+	        name = "unavailable";                                       
+	        unit = 0;
+	        currencyCode = "unavailable";
+	        country = "unavailable";
+	        rate = 0;
+	        change = 0;
 	    }
 		
 		/**

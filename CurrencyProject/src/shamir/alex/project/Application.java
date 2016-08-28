@@ -1,20 +1,23 @@
+/**
+ * Application Main Class
+ * @author Shamir & Alexander
+ */
 package shamir.alex.project;
 
-import java.awt.EventQueue;
+import javax.swing.SwingUtilities;
+
 import org.apache.log4j.*;
 
 public class Application {
 	final static Logger logger = Logger.getLogger(Application.class);
-	
 	/**
 	 * Application starts
 	 */
-	
 	public static void main(String[] args) 
 	{		
 		PropertyConfigurator.configure("log4j.properties");
 		logger.fatal("--------------------------------");
-		EventQueue.invokeLater(new Runnable(){
+		SwingUtilities.invokeLater(new Runnable(){
 			public void run()
 			{
 				try
@@ -30,7 +33,6 @@ public class Application {
 					logger.fatal("Application Crashed while Start Running");
 				}
 			}
-			
-		});		
+		});
 	}
 }
