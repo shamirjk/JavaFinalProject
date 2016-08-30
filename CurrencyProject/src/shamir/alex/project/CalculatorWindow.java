@@ -171,7 +171,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 	}
 	public void refreshCombo(){
 		destination = map.get(destinationCombo.getSelectedItem().toString());
-		source = map.get(sourceCombo.getSelectedItem().toString());	
+		source = map.get(sourceCombo.getSelectedItem().toString());
 	}
 	@Override
 	public void actionPerformed(ActionEvent act) {

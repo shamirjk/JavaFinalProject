@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.apache.log4j.Logger;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -29,9 +30,16 @@ public class GUI implements WindowConstants, ActionListener
 	//declaration of the GUI components
 	private JFrame frmCurrencyManager;
 	private JMenuBar menuBar;
-	private JButton mntmNewMenuItem;
-	private JButton mntmLoadFromFile;
-	private JButton mntmCalcOperator;
+	
+	private JMenu mntmNewMenuOptions;//////////////////////////////////////////////////
+	private JMenu mntmNewMenuHelp;/////////////////////////////////////////////
+	private JMenuItem mntmExit;////////////////////
+	private JFrame frmAbout;
+	
+	private JMenuItem mntmRefresh;
+	private JMenuItem mntmLoadFromFile;
+	private JMenuItem mntmCalcOperator;
+	private JMenuItem mntmAbout;
 	private JLabel mntmRefreshTime;
 	private JTabbedPane tabbedPane;
 	private CalculatorWindow calcWindow;
@@ -66,7 +74,7 @@ public class GUI implements WindowConstants, ActionListener
             @Override
             public void windowClosing(WindowEvent e)
             {
-                logger.info("Application Closed");
+                logger.info("Application Closed By User");
                 e.getWindow().dispose();
             }
         });
@@ -112,30 +120,103 @@ public class GUI implements WindowConstants, ActionListener
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		frmCurrencyManager.setJMenuBar(menuBar);
 		
+		//////////////////////////////////////////////////////////////////////////////
+		mntmNewMenuOptions = new JMenu("Options");
+		mntmNewMenuOptions.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		menuBar.add(mntmNewMenuOptions);
+		
+		mntmNewMenuHelp = new JMenu("Help");
+		mntmNewMenuHelp.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		menuBar.add(mntmNewMenuHelp);
 		
 		//The menu Bar Items set
-		mntmNewMenuItem = new JButton("Refresh Data");
-		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		mntmNewMenuItem.addActionListener(this);
-		menuBar.add(mntmNewMenuItem);
+		mntmAbout = new JMenuItem("About Program");
+		mntmAbout.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mntmAbout.addActionListener(this);
+		mntmNewMenuHelp.add(mntmAbout);
+		
+		
+		//////////////////////////////////////////////////////////////////////////////
 		
 		//The menu Bar Items set
-		mntmLoadFromFile = new JButton("Load File");
+		mntmRefresh = new JMenuItem("Refresh Data");
+		mntmRefresh.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mntmRefresh.addActionListener(this);
+		mntmNewMenuOptions.add(mntmRefresh);
+		
+		//The menu Bar Items set
+		mntmLoadFromFile = new JMenuItem("Load File");
 		mntmLoadFromFile.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmLoadFromFile.addActionListener(this);
-		menuBar.add(mntmLoadFromFile);
+		mntmNewMenuOptions.add(mntmLoadFromFile);
 		
-		mntmCalcOperator = new JButton("Currency Convertor");
+		mntmCalcOperator = new JMenuItem("Currency Convertor");
 		mntmCalcOperator.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmCalcOperator.addActionListener(this);
+		mntmNewMenuOptions.add(mntmCalcOperator);
 		
-		menuBar.add(mntmCalcOperator);
+		mntmNewMenuOptions.addSeparator();
+		mntmExit = new JMenuItem("Exit");
+		mntmExit.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mntmExit.addActionListener(this);
+		mntmNewMenuOptions.add(mntmExit);
 		
+	
 		
 		mntmRefreshTime = new JLabel();
 		mntmRefreshTime.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		menuBar.add(mntmRefreshTime);
-			
+		
+		//////////////////////////////////////////////
+		frmAbout = new JFrame();
+		frmAbout.setTitle("About");
+		frmAbout.setBounds(100, 100, 320, 240);
+		frmAbout.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmAbout.setSize(355, 370);
+		frmAbout.setResizable(false);
+		frmAbout.addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                logger.info("About Window Closed");
+                e.getWindow().dispose();
+            }
+        });
+		
+		JPanel pInfo;
+		pInfo = new JPanel();
+		
+		JLabel leble = new JLabel("Shamir Shamir Shamer Shamir Shamir Shamer");
+		
+		
+		pInfo.add(leble);
+		
+		JTextArea textArea = new JTextArea(13, 30);
+		JScrollPane scrollPane = new JScrollPane(textArea); 
+		textArea.setEditable(false);
+		textArea.setText("Shamir Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir\n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir Shamir \n"
+				+ "Shamir Shamir Shamir Shamir ");
+		
+		pInfo.add(scrollPane);
+		frmAbout.add(pInfo);
+		//
 	}
 
 	/**
@@ -168,6 +249,15 @@ public class GUI implements WindowConstants, ActionListener
 			case "Add New Currency":
 				logger.info("User ask to Add new Currency");	
 				break;
+				
+			case "Exit":
+				logger.info("User ask to Close The Application");	
+				System.exit(DISPOSE_ON_CLOSE);
+				break;		
+			case "About Program":
+				logger.info("User ask to Close The Application");	
+				frmAbout.setVisible(true);
+				break;		
 		}
 		
 	}
@@ -414,4 +504,12 @@ public class GUI implements WindowConstants, ActionListener
 		    }
 		}.start();
 	}
+	
+	public HashMap<String, Currency> getFilteredCurrency(String date, String currencyCode){
+		
+		HashMap<String, Currency> temp = new HashMap<String, Currency>();
+		temp.put(currencyCode, currencies.get(date).getCurrencies(currencies.get(date).getDoc()).get(currencyCode));
+		
+		return temp;
+	}	
 }
