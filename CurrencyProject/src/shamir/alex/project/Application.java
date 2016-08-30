@@ -5,7 +5,6 @@
 package shamir.alex.project;
 
 import javax.swing.SwingUtilities;
-
 import org.apache.log4j.*;
 
 public class Application {

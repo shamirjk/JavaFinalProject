@@ -130,7 +130,7 @@ public class GUI implements WindowConstants, ActionListener
 		menuBar.add(mntmNewMenuHelp);
 		
 		//The menu Bar Items set
-		mntmAbout = new JMenuItem("About Program");
+		mntmAbout = new JMenuItem("About Application");
 		mntmAbout.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmAbout.addActionListener(this);
 		mntmNewMenuHelp.add(mntmAbout);
@@ -187,32 +187,26 @@ public class GUI implements WindowConstants, ActionListener
 		JPanel pInfo;
 		pInfo = new JPanel();
 		
-		JLabel leble = new JLabel("Shamir Shamir Shamer Shamir Shamir Shamer");
+		JLabel aboutLabel = new JLabel("Currency Exchange Rate Application");
 		
 		
-		pInfo.add(leble);
+		pInfo.add(aboutLabel);
 		
 		JTextArea textArea = new JTextArea(13, 30);
 		JScrollPane scrollPane = new JScrollPane(textArea); 
 		textArea.setEditable(false);
-		textArea.setText("Shamir Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir\n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir Shamir \n"
-				+ "Shamir Shamir Shamir Shamir ");
+		textArea.setText("   This Application Made by: \n"
+				+ "   Alexander Djura ID 321774556\n"
+				+ "                & \n"
+				+ "   Shamir Kritzler ID 052993060 \n"
+				+ "\n"
+				+ "   Final Project in 2016 Java Course \n"
+				+ "   Shenkar College of Design & Engineering \n"
+				+ "   Software Engineering Department \n"
+				+ "   Lecturer: Haim Michael \n"
+				+ "\n"
+				+ "   Version: 7.0 \n"
+				+ "   \u00a9 2016 All Rights Reserved \n");
 		
 		pInfo.add(scrollPane);
 		frmAbout.add(pInfo);
@@ -254,7 +248,7 @@ public class GUI implements WindowConstants, ActionListener
 				logger.info("User ask to Close The Application");	
 				System.exit(DISPOSE_ON_CLOSE);
 				break;		
-			case "About Program":
+			case "About Application":
 				logger.info("User ask to Close The Application");	
 				frmAbout.setVisible(true);
 				break;		
