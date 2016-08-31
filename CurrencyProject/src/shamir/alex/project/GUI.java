@@ -24,6 +24,7 @@ import java.util.Date;
 public class GUI implements WindowConstants, ActionListener
 {	
 	final static Logger logger = Logger.getLogger(GUI.class);
+	
 	//Map collection of objects - can contains Online/Offline data
 	private HashMap<String,CurrencyModule> currencies = new HashMap<String,CurrencyModule>();
 		
@@ -104,14 +105,14 @@ public class GUI implements WindowConstants, ActionListener
 		frmCurrencyManager.add(tabbedPane, BorderLayout.CENTER);
 		
 		ChangeListener changeListener = new ChangeListener() {
-		      public void stateChanged(ChangeEvent changeEvent) {
+			public void stateChanged(ChangeEvent changeEvent) {
 		        JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
 		        int index = sourceTabbedPane.getSelectedIndex();
 		        calcWindow.setCurrencyModule(currencies.get(sourceTabbedPane.getTitleAt(index)));
 		        calcWindow.refreshCombo();
 		        logger.info("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
-		      }
-		    };
+			}
+		};
 		    
 		tabbedPane.addChangeListener(changeListener);
 		
@@ -205,7 +206,7 @@ public class GUI implements WindowConstants, ActionListener
 				+ "   Software Engineering Department \n"
 				+ "   Lecturer: Haim Michael \n"
 				+ "\n"
-				+ "   Version: 8.0 \n"
+				+ "   Version: 1.09 \n"
 				+ "   \u00a9 2016 All Rights Reserved \n");
 		
 		pInfo.add(scrollPane);
@@ -294,9 +295,6 @@ public class GUI implements WindowConstants, ActionListener
         
 		headLine.setLayout(new GridLayout(1, 6));
 		
-		//System.setProperty("titleColor", "0X328AA4");
-		//Color c = Color.getColor("titleColor");
-		
 		System.setProperty("red", "0Xfb6542");
 		System.setProperty("green", "0X36A930");
 		
@@ -380,7 +378,6 @@ public class GUI implements WindowConstants, ActionListener
          
             resultsPanel.add(panel);
         }
-
         containPanel.add(resultsPanel, BorderLayout.CENTER);
         //Add the panel to the tab pane
         //In Order to create new tab with date title
@@ -497,13 +494,5 @@ public class GUI implements WindowConstants, ActionListener
 		    	}
 		    }
 		}.start();
-	}
-	
-	public HashMap<String, Currency> getFilteredCurrency(String date, String currencyCode){
-		
-		HashMap<String, Currency> temp = new HashMap<String, Currency>();
-		temp.put(currencyCode, currencies.get(date).getCurrencies(currencies.get(date).getDoc()).get(currencyCode));
-		
-		return temp;
 	}	
 }

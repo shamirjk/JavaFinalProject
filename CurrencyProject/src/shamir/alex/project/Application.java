@@ -16,10 +16,13 @@ public class Application {
 	 * Application starts
 	 */
 	public static void main(String[] args) 
-	{		
+	{	
+		//configure log4j
 		String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.xml";
 		DOMConfigurator.configure(log4jConfigFile);
+		
 		logger.fatal("--------------------------------");
+		
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run()
 			{

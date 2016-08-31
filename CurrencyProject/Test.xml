@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CURRENCIES>
+  <LAST_UPDATE>2001-09-11</LAST_UPDATE>
+  <CURRENCY>
+    <NAME>Test</NAME>
+    <UNIT>1</UNIT>
+    <CURRENCYCODE>TST</CURRENCYCODE>
+    <COUNTRY>Galaxy</COUNTRY>
+    <RATE>4.72354</RATE>
+    <CHANGE>0.01</CHANGE>
+  </CURRENCY>
+</CURRENCIES>

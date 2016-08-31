@@ -34,11 +34,9 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 	private JLabel lblTxtRes;
 
 	/**
-	 * Create the panel, get the CurrencyModule object that contain the data
-	 * 
-	 * @param map
-	 * @param currMod
+	 * Create the Calculator Window 
 	 */
+	
 	public CalculatorWindow()
 	{
 		
@@ -46,7 +44,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		setLayout(new GridLayout(8, 1, 0, 0));
 		JPanel converterTitle = new JPanel();
 		converterTitle.setLayout(new GridLayout(1, 1));
-		converterTitle.setBackground(Color.getColor("grey"));
+		converterTitle.setBackground(Color.getColor("gray"));
 		
 		lblTitle = new JLabel("Converter");
 		lblTitle.setOpaque(true);
@@ -195,7 +193,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 			if (source != null && destination != null) {
 				// convert currencies, put result in label
 				try {
-					logger.info("Calculate Exchange rate");
+					logger.info("Calculate Exchange rate from " + source.currencyCode +" to " + destination.currencyCode);
 					double result = currMod.currencyConvert(
 							Double.parseDouble(textFieldAmount.getText()),
 							source, destination);

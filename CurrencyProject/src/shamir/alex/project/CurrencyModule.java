@@ -212,7 +212,6 @@ public class CurrencyModule implements IExchange
 		logger.info("File Parsed");
 	}
 	
-	
 	/**
 	 * get the doc var, the implement will pass to extends classes
 	 */

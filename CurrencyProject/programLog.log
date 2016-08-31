@@ -66,3 +66,39 @@ INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
 INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
 INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
 INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+FATAL AWT-EventQueue-0 shamir.alex.project.Application - Application Crashed while Start Running
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+FATAL AWT-EventQueue-0 shamir.alex.project.Application - Application Crashed while Start Running
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+ERROR AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Pull Data from Site failed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+ERROR AWT-EventQueue-0 shamir.alex.project.GUI - Can't Load Data From Server
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+FATAL AWT-EventQueue-0 shamir.alex.project.Application - Application Crashed while Start Running
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Load Data From File
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Close The Application
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - About Window Closed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
