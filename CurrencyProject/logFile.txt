@@ -1,0 +1,142 @@
+2016-08-26 17:57:44 INFO  Application:21 - Application Started
+2016-08-26 17:57:44 INFO  GUI:51 - start draw GUI
+2016-08-26 17:57:44 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 17:57:45 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 17:57:45 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 17:57:45 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 17:57:45 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 17:57:45 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 17:57:52 INFO  GUI:105 - User ask to Load Data From File
+2016-08-26 17:58:07 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 17:58:23 INFO  GUI:100 - User ask to Refresh Data
+2016-08-26 17:58:23 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 17:58:23 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 17:58:23 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 17:58:23 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 17:58:23 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 17:58:23 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:01:06 FATAL Application:33 - *****End Of Log*****
+2016-08-26 18:01:06 INFO  Application:21 - Application Started
+2016-08-26 18:01:06 FATAL Application:34 - --------------------------------
+2016-08-26 18:01:06 INFO  GUI:51 - start draw GUI
+2016-08-26 18:01:06 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:01:07 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:01:07 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:01:07 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:01:07 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:01:07 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:04:01 FATAL Application:16 - --------------------------------
+2016-08-26 18:04:02 FATAL Application:35 - *****End Of Log*****
+2016-08-26 18:04:02 INFO  Application:22 - Application Started
+2016-08-26 18:04:02 INFO  GUI:51 - start draw GUI
+2016-08-26 18:04:02 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:04:02 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:04:02 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:04:02 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:04:02 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:04:02 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:08:01 FATAL Application:16 - --------------------------------
+2016-08-26 18:08:01 INFO  Application:22 - Application Started
+2016-08-26 18:08:01 INFO  GUI:51 - start draw GUI
+2016-08-26 18:08:01 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:08:01 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:08:02 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:08:02 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:08:02 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:08:02 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:08:04 INFO  GUI:105 - User ask to Load Data From File
+2016-08-26 18:08:14 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:08:17 INFO  GUI:100 - User ask to Refresh Data
+2016-08-26 18:08:17 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:08:17 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:08:17 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:08:17 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:08:17 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:08:17 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:08:31 FATAL Application:16 - --------------------------------
+2016-08-26 18:08:31 INFO  Application:22 - Application Started
+2016-08-26 18:08:31 INFO  GUI:51 - start draw GUI
+2016-08-26 18:08:31 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:08:31 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:08:31 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:08:31 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:08:31 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:08:31 INFO  CurrencyModule:212 - File Parsed
+2016-08-26 18:08:48 INFO  GUI:100 - User ask to Refresh Data
+2016-08-26 18:08:48 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-26 18:08:49 INFO  CurrencyModule:137 - Start stream from website
+2016-08-26 18:08:49 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-26 18:08:49 INFO  CurrencyModule:166 - input stream closed
+2016-08-26 18:08:49 INFO  CurrencyModule:179 - Connection closed
+2016-08-26 18:08:49 INFO  CurrencyModule:212 - File Parsed
+2016-08-27 11:37:15 FATAL Application:16 - --------------------------------
+2016-08-27 11:37:16 INFO  Application:22 - Application Started
+2016-08-27 11:37:16 INFO  GUI:51 - start draw GUI
+2016-08-27 11:37:16 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-27 11:37:16 INFO  CurrencyModule:137 - Start stream from website
+2016-08-27 11:37:16 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-27 11:37:16 INFO  CurrencyModule:166 - input stream closed
+2016-08-27 11:37:16 INFO  CurrencyModule:179 - Connection closed
+2016-08-27 11:37:16 INFO  CurrencyModule:212 - File Parsed
+2016-08-28 14:03:00 FATAL Application:19 - --------------------------------
+2016-08-28 14:03:00 INFO  Application:25 - Application Started
+2016-08-28 14:03:00 INFO  GUI:56 - start draw GUI
+2016-08-28 14:03:00 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-28 14:03:01 INFO  CurrencyModule:137 - Start stream from website
+2016-08-28 14:03:01 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-28 14:03:01 INFO  CurrencyModule:166 - input stream closed
+2016-08-28 14:03:01 INFO  CurrencyModule:179 - Connection closed
+2016-08-28 14:03:01 INFO  CurrencyModule:212 - File Parsed
+2016-08-28 14:03:01 INFO  GUI:104 - Tab changed to: 2016-08-26
+2016-08-28 14:03:09 INFO  GUI:164 - User Ask to show Currency Convertor Window
+2016-08-28 14:03:23 INFO  CalculatorWindow:198 - Calculate Exchange rate
+2016-08-28 14:03:26 INFO  CalculatorWindow:198 - Calculate Exchange rate
+2016-08-28 14:03:33 INFO  CalculatorWindow:198 - Calculate Exchange rate
+2016-08-28 14:03:47 INFO  CalculatorWindow:198 - Calculate Exchange rate
+2016-08-28 14:03:59 INFO  GUI:161 - User Ask to hide Currency Convertor Window
+2016-08-28 14:04:00 INFO  GUI:164 - User Ask to show Currency Convertor Window
+2016-08-28 14:04:02 INFO  GUI:86 - Convertor Window Closed
+2016-08-28 14:04:09 INFO  GUI:151 - User ask to Refresh Data
+2016-08-28 14:04:09 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-28 14:04:09 INFO  CurrencyModule:137 - Start stream from website
+2016-08-28 14:04:09 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-28 14:04:09 INFO  CurrencyModule:166 - input stream closed
+2016-08-28 14:04:09 INFO  CurrencyModule:179 - Connection closed
+2016-08-28 14:04:09 INFO  CurrencyModule:212 - File Parsed
+2016-08-28 14:04:33 INFO  GUI:164 - User Ask to show Currency Convertor Window
+2016-08-28 14:04:35 INFO  GUI:86 - Convertor Window Closed
+2016-08-28 14:04:40 INFO  GUI:69 - Application Closed
+2016-08-30 18:56:02 FATAL Application:19 - --------------------------------
+2016-08-30 18:56:02 INFO  Application:25 - Application Started
+2016-08-30 18:56:02 INFO  GUI:64 - start draw GUI
+2016-08-30 18:56:03 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-30 18:56:03 INFO  CurrencyModule:137 - Start stream from website
+2016-08-30 18:56:03 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-30 18:56:03 INFO  CurrencyModule:166 - input stream closed
+2016-08-30 18:56:03 INFO  CurrencyModule:179 - Connection closed
+2016-08-30 18:56:03 INFO  CurrencyModule:212 - File Parsed
+2016-08-30 18:56:03 INFO  GUI:112 - Tab changed to: 2016-08-30
+2016-08-30 18:56:27 FATAL Application:19 - --------------------------------
+2016-08-30 18:56:27 INFO  Application:25 - Application Started
+2016-08-30 18:56:27 INFO  GUI:64 - start draw GUI
+2016-08-30 18:56:27 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-30 18:56:27 INFO  CurrencyModule:137 - Start stream from website
+2016-08-30 18:56:27 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-30 18:56:27 INFO  CurrencyModule:166 - input stream closed
+2016-08-30 18:56:27 INFO  CurrencyModule:179 - Connection closed
+2016-08-30 18:56:27 INFO  CurrencyModule:212 - File Parsed
+2016-08-30 18:56:27 INFO  GUI:112 - Tab changed to: 2016-08-30
+2016-08-30 18:56:29 INFO  GUI:77 - Application Closed By User
+2016-08-30 21:02:34 FATAL Application:18 - --------------------------------
+2016-08-30 21:02:34 INFO  Application:24 - Application Started
+2016-08-30 21:02:34 INFO  GUI:64 - start draw GUI
+2016-08-30 21:02:34 INFO  CurrencyModule:135 - Connect to http://www.boi.org.il/currency.xml
+2016-08-30 21:02:35 INFO  CurrencyModule:137 - Start stream from website
+2016-08-30 21:02:35 INFO  CurrencyModule:151 - Updated Data Saved to File
+2016-08-30 21:02:35 INFO  CurrencyModule:166 - input stream closed
+2016-08-30 21:02:35 INFO  CurrencyModule:179 - Connection closed
+2016-08-30 21:02:35 INFO  CurrencyModule:212 - File Parsed
+2016-08-30 21:02:35 INFO  GUI:112 - Tab changed to: 2016-08-30
+2016-08-30 21:02:37 INFO  GUI:252 - User ask to Close The Application
+2016-08-30 21:02:51 INFO  GUI:182 - About Window Closed
+2016-08-30 21:02:56 INFO  GUI:77 - Application Closed By User

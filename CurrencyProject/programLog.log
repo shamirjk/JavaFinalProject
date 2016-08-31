@@ -1,0 +1,68 @@
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Tab changed to: 2016-08-30
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Tab changed to: 2016-08-30
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Tab changed to: 2016-08-30
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User
+FATAL main shamir.alex.project.Application - --------------------------------
+INFO AWT-EventQueue-0 shamir.alex.project.Application - Application Started
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - start draw GUI
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Tab changed to: 2016-08-30
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Refresh Data
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Refresh Data
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Load Data From File
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User Ask to show Currency Convertor Window
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Convertor Window Closed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - User ask to Refresh Data
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connect to http://www.boi.org.il/currency.xml
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Start stream from website
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Updated Data Saved to File
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - input stream closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - Connection closed
+INFO AWT-EventQueue-0 shamir.alex.project.CurrencyModule - File Parsed
+INFO AWT-EventQueue-0 shamir.alex.project.GUI - Application Closed By User

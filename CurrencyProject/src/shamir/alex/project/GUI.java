@@ -205,7 +205,7 @@ public class GUI implements WindowConstants, ActionListener
 				+ "   Software Engineering Department \n"
 				+ "   Lecturer: Haim Michael \n"
 				+ "\n"
-				+ "   Version: 7.0 \n"
+				+ "   Version: 8.0 \n"
 				+ "   \u00a9 2016 All Rights Reserved \n");
 		
 		pInfo.add(scrollPane);

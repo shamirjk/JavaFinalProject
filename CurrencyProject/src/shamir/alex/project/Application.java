@@ -4,17 +4,21 @@
  */
 package shamir.alex.project;
 
+import java.io.File;
+
 import javax.swing.SwingUtilities;
 import org.apache.log4j.*;
+import org.apache.log4j.xml.DOMConfigurator;
 
 public class Application {
-	final static Logger logger = Logger.getLogger(Application.class);
+	final static Logger logger = Logger.getLogger(Application.class.getName());
 	/**
 	 * Application starts
 	 */
 	public static void main(String[] args) 
 	{		
-		PropertyConfigurator.configure("log4j.properties");
+		String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.xml";
+		DOMConfigurator.configure(log4jConfigFile);
 		logger.fatal("--------------------------------");
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run()
