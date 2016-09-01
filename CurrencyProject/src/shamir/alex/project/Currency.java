@@ -53,6 +53,5 @@ public class Currency
 	        return "Currency Object[name=" + name + ", unit=" + unit + ", currencyCode="
 	                + currencyCode + ", country=" + country + ", rate=" + rate
 	                + ", change=" + change + "]";
-	    }
-		
+	    }		
 }

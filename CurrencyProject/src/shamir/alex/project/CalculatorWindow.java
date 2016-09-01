@@ -1,5 +1,5 @@
 /**
- * Create an panel that handle the converting options
+ * Create Frame for Calculator converting options
  * @author Shamir & Alexander
  */
 
@@ -66,7 +66,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		lblFrom.setHorizontalAlignment(SwingConstants.CENTER);
 		from.add(lblFrom);
 		
-		//from set params for combobox control
+		//from set params for combo box control
 		sourceCombo = new JComboBox<String>();
 		sourceCombo.addActionListener(this);
 		from.add(sourceCombo);
@@ -83,7 +83,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		lblTo.setHorizontalAlignment(SwingConstants.CENTER);
 		to.add(lblTo);
 				
-		//to set params for combobox control
+		//to set params for combo box control
 		destinationCombo = new JComboBox<String>();
 		destinationCombo.addActionListener(this);
 		to.add(destinationCombo);
@@ -99,7 +99,7 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		lblAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		amount.add(lblAmount);
 
-		// set params for amount txtfiled
+		// set params for amount text field
 		textFieldAmount = new JTextField();
 		textFieldAmount.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textFieldAmount.setText("0");
@@ -107,9 +107,8 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		textFieldAmount.addKeyListener(this);
 		textFieldAmount.setColumns(10);
 		amount.add(textFieldAmount);
-
+		
 		add(amount);
-
 
 		JPanel calcBtn = new JPanel();
 		calcBtn.setLayout(new BorderLayout());
@@ -138,12 +137,12 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 		lblResult.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResult.setFont(new Font("Tahoma", Font.BOLD, 14));
 		res.add(lblResult);
-		add(res);
-		//add(calcPanel);
-		// populate data to comboboxes
-		
+		add(res);	
 	}
-	
+	/**
+	 * set Currency Module for the active tab (by date) 
+	 * @param currMod
+	 */
 	public void setCurrencyModule(CurrencyModule currMod){
 		// set vars
 		lblTitle.setText("The Converter uses  " + currMod.getUpdateTime(currMod.getDoc())+" Rates");
@@ -167,6 +166,10 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 
 		}
 	}
+	
+	/**
+	 * Switching the Rate Used Data for the Calculator by the active tab in the Main Window
+	 */
 	public void refreshCombo(){
 		destination = map.get(destinationCombo.getSelectedItem().toString());
 		source = map.get(sourceCombo.getSelectedItem().toString());
@@ -179,16 +182,14 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 				&& act.getActionCommand() == "comboBoxChanged") {
 			destination = map.get(destinationCombo.getSelectedItem().toString());
 		}
-		// Get currency - if user selects a value from the destination combo box
+		// Get currency - if user selects a value from the source combo box
 		// than the link is objected to it
 		if (act.getSource() == sourceCombo
 				&& act.getActionCommand() == "comboBoxChanged") {
 			source = map.get(sourceCombo.getSelectedItem().toString());
 		}
-		if (act.getSource() == textFieldAmount) {
-			// source = map.get(sourceCombo.getSelectedItem().toString());
-		}
-		// when clicked on calc button
+
+		// when clicked on "Calc" button in the Calculator Window
 		if (act.getActionCommand() == "Calc") {
 			if (source != null && destination != null) {
 				// convert currencies, put result in label
@@ -211,7 +212,6 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 
 	/**
 	 * Function that rounds result value to a double number with the decided precision
-	 * 
 	 * @param unrounded
 	 * @param precision
 	 * @param roundingMode
@@ -238,5 +238,4 @@ public class CalculatorWindow extends JFrame implements ActionListener,KeyListen
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 	}
-
 }

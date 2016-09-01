@@ -4,6 +4,7 @@
  */
 
 package shamir.alex.project;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -32,9 +33,9 @@ public class GUI implements WindowConstants, ActionListener
 	private JFrame frmCurrencyManager;
 	private JMenuBar menuBar;
 	
-	private JMenu mntmNewMenuOptions;//////////////////////////////////////////////////
-	private JMenu mntmNewMenuHelp;/////////////////////////////////////////////
-	private JMenuItem mntmExit;////////////////////
+	private JMenu mntmNewMenuOptions;
+	private JMenu mntmNewMenuHelp;
+	private JMenuItem mntmExit;
 	private JFrame frmAbout;
 	
 	private JMenuItem mntmRefresh;
@@ -47,7 +48,6 @@ public class GUI implements WindowConstants, ActionListener
 	
 	/**
 	 * Create the application.
-	 * @throws Exception 
 	 */
 	//public GUI(ConverterPanel calcWindow)
 	public GUI()
@@ -58,14 +58,13 @@ public class GUI implements WindowConstants, ActionListener
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws IOException 
 	 */
 	private void initialize()
 	{
 		logger.info("start draw GUI");
 		//The main form of init and set.
 		frmCurrencyManager = new JFrame();
-		frmCurrencyManager.setTitle("Currency Manager By Shamir & Alex");
+		frmCurrencyManager.setTitle("Currency Exchange Rates Application");
 		frmCurrencyManager.setBounds(100, 100, 640, 480);
 		frmCurrencyManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCurrencyManager.setMinimumSize(new Dimension(500, 300));
@@ -97,14 +96,13 @@ public class GUI implements WindowConstants, ActionListener
             }
         });
 		
-		
 		//The Tab pane init and set.
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setTabPlacement(JTabbedPane.TOP);
 		tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		frmCurrencyManager.add(tabbedPane, BorderLayout.CENTER);
 		
-		ChangeListener changeListener = new ChangeListener() {
+		tabbedPane.addChangeListener( new ChangeListener() {
 			public void stateChanged(ChangeEvent changeEvent) {
 		        JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
 		        int index = sourceTabbedPane.getSelectedIndex();
@@ -112,16 +110,13 @@ public class GUI implements WindowConstants, ActionListener
 		        calcWindow.refreshCombo();
 		        logger.info("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
 			}
-		};
-		    
-		tabbedPane.addChangeListener(changeListener);
+		});
 		
 		//The menu Bar init
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		frmCurrencyManager.setJMenuBar(menuBar);
 		
-		//////////////////////////////////////////////////////////////////////////////
 		mntmNewMenuOptions = new JMenu("Options");
 		mntmNewMenuOptions.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mntmNewMenuOptions);
@@ -135,9 +130,6 @@ public class GUI implements WindowConstants, ActionListener
 		mntmAbout.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmAbout.addActionListener(this);
 		mntmNewMenuHelp.add(mntmAbout);
-		
-		
-		//////////////////////////////////////////////////////////////////////////////
 		
 		//The menu Bar Items set
 		mntmRefresh = new JMenuItem("Refresh Data");
@@ -162,13 +154,10 @@ public class GUI implements WindowConstants, ActionListener
 		mntmExit.addActionListener(this);
 		mntmNewMenuOptions.add(mntmExit);
 		
-	
-		
 		mntmRefreshTime = new JLabel();
 		mntmRefreshTime.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 		menuBar.add(mntmRefreshTime);
 		
-		//////////////////////////////////////////////
 		frmAbout = new JFrame();
 		frmAbout.setTitle("About");
 		frmAbout.setBounds(100, 100, 320, 240);
@@ -185,13 +174,10 @@ public class GUI implements WindowConstants, ActionListener
             }
         });
 		
-		JPanel pInfo;
-		pInfo = new JPanel();
-		
+		JPanel aboutPanel = new JPanel();
 		JLabel aboutLabel = new JLabel("Currency Exchange Rate Application");
 		
-		
-		pInfo.add(aboutLabel);
+		aboutPanel.add(aboutLabel);
 		
 		JTextArea textArea = new JTextArea(13, 30);
 		JScrollPane scrollPane = new JScrollPane(textArea); 
@@ -206,12 +192,11 @@ public class GUI implements WindowConstants, ActionListener
 				+ "   Software Engineering Department \n"
 				+ "   Lecturer: Haim Michael \n"
 				+ "\n"
-				+ "   Version: 1.09 \n"
+				+ "   Version: 1.10 \n"
 				+ "   \u00a9 2016 All Rights Reserved \n");
 		
-		pInfo.add(scrollPane);
-		frmAbout.add(pInfo);
-		//
+		aboutPanel.add(scrollPane);
+		frmAbout.add(aboutPanel);
 	}
 
 	/**
@@ -222,16 +207,16 @@ public class GUI implements WindowConstants, ActionListener
 	{
 		switch(action.getActionCommand().toString())
 		{
-			//Handle the online loading of the XML
 			case "Refresh Data":
 				logger.info("User ask to Refresh Data");
 				loadFromOnline();
 				break;
-				
+			
 			case "Load File":
 				logger.info("User ask to Load Data From File");
 				loadFromOffLine();
 				break;
+				
 			case "Currency Convertor":
 				if (calcWindow.isVisible()==true) {
 					logger.info("User Ask to hide Currency Convertor Window");
@@ -241,20 +226,17 @@ public class GUI implements WindowConstants, ActionListener
 					calcWindow.setVisible(true);
 				}
 				break;
-			case "Add New Currency":
-				logger.info("User ask to Add new Currency");	
-				break;
 				
 			case "Exit":
 				logger.info("User ask to Close The Application");	
 				System.exit(DISPOSE_ON_CLOSE);
-				break;		
+				break;	
+				
 			case "About Application":
-				logger.info("User ask to Close The Application");	
+				logger.info("User ask to Open About Window");	
 				frmAbout.setVisible(true);
 				break;		
-		}
-		
+		}	
 	}
 	/**
 	 * This function  return a strings collection that
@@ -271,7 +253,6 @@ public class GUI implements WindowConstants, ActionListener
 	 * This function paint the data that is on the screen
 	 * @param currenciesMap
 	 * @param Date
-	 * @throws IOException 
 	 */
 	private void drawCurrenciesPanels(HashMap<String, Currency> currenciesMap,String date)
     {
@@ -298,10 +279,7 @@ public class GUI implements WindowConstants, ActionListener
 		System.setProperty("red", "0Xfb6542");
 		System.setProperty("green", "0X36A930");
 		
-		
-		
 		headLine.setBackground(Color.GRAY);
-		
 		
 		//Load column names to the array of labels 
 		for(int i=0;i<colName.size();i++)
@@ -384,7 +362,11 @@ public class GUI implements WindowConstants, ActionListener
         tabbedPane.add(date,containPanel);
 	}
 
-
+	
+	/**
+	 * This is a function for load data from online
+	 * (if the connection fails the program takes the data from from file)
+	 */
 	public void loadFromOnline(){
 		//Creates online object that will get the file from server
 		CurrencyModule on = new CurrencyModule();
@@ -408,8 +390,8 @@ public class GUI implements WindowConstants, ActionListener
 		{
 			logger.error("Can't Load Data From Server");
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "There was a problem to load data from server.\n\nCheck for internet connection and try again.","Error",JOptionPane.OK_OPTION);
-			
+			JOptionPane.showMessageDialog(null, "There was a problem to load data from server.\n\n"
+					+ "Check for internet connection and try again.","Error",JOptionPane.OK_OPTION);	
 		}
 		
 		try{
@@ -419,7 +401,8 @@ public class GUI implements WindowConstants, ActionListener
 		catch (IOException o){
 			logger.error("Can't Load Data From Selected File");
 			o.printStackTrace();
-			JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\nPlease try again or choose different file.","Error",JOptionPane.OK_OPTION);
+			JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\n"
+					+ "Please try again or choose different file.","Error",JOptionPane.OK_OPTION);
 		}	
 		date = on.getUpdateTime(on.getDoc());	
 		
@@ -437,9 +420,10 @@ public class GUI implements WindowConstants, ActionListener
 		}
 		mntmRefreshTime.setText(" Last refresh from: " + reportDate);
 	}
-	
+	/**
+	 * This Function load offline selected file
+	 */
 	public void loadFromOffLine(){
-		
 		boolean exist = false;
 		String date;
 		
@@ -473,11 +457,15 @@ public class GUI implements WindowConstants, ActionListener
 			{
 				logger.error("Can't Load Data From Selected File");
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\nPlease try again or choose different file.","Error",JOptionPane.OK_OPTION);
+				JOptionPane.showMessageDialog(null, "There was a problem to load data from the selected file,The file may be corrupted.\n\n"
+						+ "Please try again or choose different file.","Error",JOptionPane.OK_OPTION);
 			}
 		}
 	}
 	
+	/**
+	 * this function check for a new data every hour and opens new tab with updated data if necessary
+	 */
 	public void autoUpdate(){
 		new Thread()
 		{

@@ -1,11 +1,12 @@
+/**
+ * tests connection for currencyModule Class
+ * @author Shamir & Alexander
+ */
 package shamir.alex.tests;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
-
 import org.junit.Test;
-
 import shamir.alex.project.CurrencyModule;
 
 public class ConnectToServer {
@@ -19,5 +20,4 @@ public class ConnectToServer {
     	myCurrencyModule.offlineData("Test.xml");
     	assertTrue(myCurrencyModule.getDoc() != null);   	
     }
-
 }

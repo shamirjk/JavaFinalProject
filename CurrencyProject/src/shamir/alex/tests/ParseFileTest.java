@@ -1,9 +1,12 @@
+/**
+ * tests correct parsing for XML File
+ * @author Shamir & Alexander
+ */
 package shamir.alex.tests;
 
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -19,15 +22,11 @@ public class ParseFileTest{
     	myCurrencyModule.offlineData("Test.xml");
     	Document testDoc = myCurrencyModule.getDoc();
 		NodeList list = testDoc.getElementsByTagName("LAST_UPDATE");	
-		
 		assertEquals("2001-09-11",list.item(0).getFirstChild().getNodeValue());	
 		
-		list = testDoc.getElementsByTagName("CURRENCY");
-		
+		list = testDoc.getElementsByTagName("CURRENCY");		
 		assertTrue(list.getLength() > 0);
-		
-		//Entire list scan
-       
+
        	Node currCurrency = list.item(0);
             
         NodeList currencyElements = ((Element)currCurrency).getElementsByTagName("NAME");//NAME parsing the currency					                 
@@ -47,6 +46,5 @@ public class ParseFileTest{
         
         currencyElements = ((Element)currCurrency).getElementsByTagName("CHANGE");//NAME parsing the currency					                 
         assertEquals("0.01",currencyElements.item(0).getFirstChild().getNodeValue());
-    }
-    
+    }   
 }

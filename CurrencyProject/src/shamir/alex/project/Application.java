@@ -5,7 +5,6 @@
 package shamir.alex.project;
 
 import java.io.File;
-
 import javax.swing.SwingUtilities;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;

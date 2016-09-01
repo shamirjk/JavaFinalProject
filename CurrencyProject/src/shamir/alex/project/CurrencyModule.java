@@ -30,6 +30,7 @@ public class CurrencyModule implements IExchange
 	private Document doc;
 	/**
 	 * The method gets the XML doc update time
+	 * @param doc
 	 */
 	public String getUpdateTime(Document doc)
 	{
@@ -49,6 +50,7 @@ public class CurrencyModule implements IExchange
 	/**
 	 * This method returns the currencies that are in the hash-map
 	 * (key = currencyCode field in class currency)
+	 * @param doc
 	 */
 	public HashMap<String, Currency> getCurrencies(Document doc)
 	{
@@ -98,6 +100,9 @@ public class CurrencyModule implements IExchange
 	
 	/**
 	 * the method converts the sum from source currency to destination currency
+	 * @param sum
+	 * @param source
+	 * @param destination
 	 */
 	public double currencyConvert(Double sum, Currency source, Currency destination) throws NullPointerException
 	{
@@ -183,6 +188,7 @@ public class CurrencyModule implements IExchange
 	
 	/**
 	 * Parsing the Offline file to Doc Object
+	 * @param filePath
 	 */
 	public void offlineData(String filePath) throws IOException
 	{
@@ -220,5 +226,4 @@ public class CurrencyModule implements IExchange
 	{
 		return doc;
 	}
-
 }

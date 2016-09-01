@@ -1,3 +1,7 @@
+/**
+ * main class of tests using JUnit
+ * @author Shamir & Alexander
+ */
 package shamir.alex.tests;
 
 import org.junit.runner.RunWith;
